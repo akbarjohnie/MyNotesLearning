@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:mynotesapp/firebase_options.dart';
 import 'package:mynotesapp/services/auth/auth_exeptions.dart';
 import 'package:mynotesapp/services/auth/auth_user.dart';
 import 'package:mynotesapp/services/auth/auth_provider.dart';
@@ -89,5 +91,12 @@ class FirebaseAuthProvider implements AuthProvider {
   @override
   Future<void> sentEmailVerification() {
     throw UnimplementedError();
+  }
+
+  @override
+  Future<void> initialize() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   }
 }
