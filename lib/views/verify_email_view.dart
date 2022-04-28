@@ -18,6 +18,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
           centerTitle: true,
         ),
         body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
