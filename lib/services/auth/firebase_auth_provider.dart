@@ -3,7 +3,6 @@ import 'package:mynotesapp/firebase_options.dart';
 import 'package:mynotesapp/services/auth/auth_exeptions.dart';
 import 'package:mynotesapp/services/auth/auth_user.dart';
 import 'package:mynotesapp/services/auth/auth_provider.dart';
-
 import 'package:firebase_auth/firebase_auth.dart'
     show FirebaseAuth, FirebaseAuthException;
 

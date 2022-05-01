@@ -8,7 +8,7 @@ class NotesView extends StatefulWidget {
   const NotesView({Key? key}) : super(key: key);
 
   @override
-  State<NotesView> createState() => _NotesViewState();
+  _NotesViewState createState() => _NotesViewState();
 }
 
 class _NotesViewState extends State<NotesView> {
@@ -18,7 +18,6 @@ class _NotesViewState extends State<NotesView> {
   @override
   void initState() {
     _notesService = NotesService();
-    // _notesService.open() ;
     super.initState();
   }
 
@@ -53,7 +52,6 @@ class _NotesViewState extends State<NotesView> {
                       (_) => false,
                     );
                   }
-                  break;
               }
             },
             itemBuilder: (context) {
@@ -77,6 +75,7 @@ class _NotesViewState extends State<NotesView> {
                 builder: (context, snapshot) {
                   switch (snapshot.connectionState) {
                     case ConnectionState.waiting:
+                    case ConnectionState.active:
                       return const Text('Waiting for all notes');
                     default:
                       return const CircularProgressIndicator();
