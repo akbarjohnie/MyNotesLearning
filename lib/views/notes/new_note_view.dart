@@ -38,7 +38,7 @@ class _NewNoteViewState extends State<NewNoteView> {
     _textController.addListener(_textControllerListener);
   }
 
-  Future<DatabaseNote> createNewNote() async {
+  Future<DatabaseNote?> createNewNote() async {
     final existingNote = _note;
     if (existingNote != null) {
       return existingNote;
@@ -87,7 +87,7 @@ class _NewNoteViewState extends State<NewNoteView> {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
-              _note = snapshot.data as DatabaseNote;
+              _note = snapshot.data as DatabaseNote?;
               _setupTextControllerListener();
               return TextField(
                 controller: _textController,
