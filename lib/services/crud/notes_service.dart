@@ -61,11 +61,11 @@ class NotesService {
     if (updatesCount == 0) {
       throw CouldNotUpdateNote();
     } else {
-      final updateNote = await getNote(id: note.id);
-      _notes.removeWhere((note) => note.id == updateNote.id);
-      _notes.add(updateNote);
+      final updatedNote = await getNote(id: note.id);
+      _notes.removeWhere((note) => note.id == updatedNote.id);
+      _notes.add(updatedNote);
       _notesStreamController.add(_notes);
-      return updateNote;
+      return updatedNote;
     }
   }
 
@@ -111,7 +111,7 @@ class NotesService {
     await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
     final deletedCount = await db.delete(
-      userTable,
+      noteTable,
       where: 'id = ?',
       whereArgs: [id],
     );
@@ -309,9 +309,9 @@ class DatabaseNote {
   int get hashCode => id.hashCode;
 }
 
+const dbName = 'notes.db';
 const noteTable = 'note';
 const userTable = 'user';
-const dbName = 'notes.db';
 const idColumn = 'id';
 const emailColumn = 'email';
 const userIdColumn = 'user_id';
