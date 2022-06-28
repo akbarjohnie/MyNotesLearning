@@ -1,8 +1,6 @@
 # mynotesapp
 
-The purpose of this Flutter pet-project is learning Flutter.
-
-
+A new Flutter project.
 
 ## Getting Started
 
